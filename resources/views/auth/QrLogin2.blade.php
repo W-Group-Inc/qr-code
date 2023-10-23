@@ -24,6 +24,7 @@ QR Login
                     <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
                 </div>
                 <div class="well" style="width: 100%;">
+                    <button class='btn btn-danger' onclick="askPermission()">click me</button>
                     <label id="zoom-value" width="100">Zoom: 1</label>
                     <input id="zoom" onchange="Page.changeZoom();" type="range" min="10" max="30" value="1">
                     <label id="brightness-value"  width="100">Brightness: 0</label>
@@ -97,7 +98,21 @@ QR Login
 <script type="text/javascript" src="{{ URL::asset('/qr_login/option2/js/webcodecamjs.js ') }}"></script>
 
 <script>
-    
+    function askPermission(){
+
+//add constraints object
+var constraints = {
+    audio:true,
+    video:true};
+
+//call getUserMedia
+navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
+
+   }).catch(function(err){
+        console.log("There's an error!" + err.message);
+    })
+
+}
  function CallAjaxLoginQr(code) {
       $.ajax({
             type: "POST",
@@ -184,21 +199,21 @@ QR Login
             scannedQR[txt] = "";
         },
         getDevicesError: function(error) {
-            var p, message = "Error detected with the following parameters:\n";
+            var p, message = "Error detected with the following1 parameters:\n";
             for (p in error) {
                 message += p + ": " + error[p] + "\n";
             }
             alert(message);
         },
         getUserMediaError: function(error) {
-            var p, message = "Error detected with the following parameters:\n";
+            var p, message = "Error detected with the following2 parameters:\n";
             for (p in error) {
                 message += p + ": " + error[p] + "\n";
             }
             alert(message);
         },
         cameraError: function(error) {
-            var p, message = "Error detected with the following parameters:\n";
+            var p, message = "Error detected with the following3 parameters:\n";
             if (error.name == "NotSupportedError") {
                 var ans = confirm("Your browser does not support getUserMedia via HTTP!\n(see: https:goo.gl/Y0ZkNV).\n You want to see github demo page in a new window?");
                 if (ans) {
