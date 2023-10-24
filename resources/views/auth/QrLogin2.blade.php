@@ -24,7 +24,7 @@ QR Login
                     <div class="scanner-laser laser-leftTop" style="opacity: 0.5;"></div>
                 </div>
                 <div class="well" style="width: 100%;">
-                    <button class='btn btn-danger' onclick="askPermission()">click me</button>
+                    <button id="enableCamera" class='btn btn-danger'>Enable Camera</button> <br>
                     <label id="zoom-value" width="100">Zoom: 1</label>
                     <input id="zoom" onchange="Page.changeZoom();" type="range" min="10" max="30" value="1">
                     <label id="brightness-value"  width="100">Brightness: 0</label>
@@ -94,6 +94,24 @@ QR Login
 @endsection
 @if( !Sentinel::getUser())
 @section('scripts')
+<script>
+    const enableCameraButton = document.getElementById('enableCamera');
+    const cameraFeed = document.getElementById('cameraFeed');
+
+    enableCameraButton.addEventListener('click', async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+        // Display the camera feed in a video element
+        cameraFeed.srcObject = stream;
+        cameraFeed.style.display = 'block';
+
+        enableCameraButton.disabled = true;
+      } catch (error) {
+        console.error('Error accessing the camera:', error);
+      }
+    });
+  </script>
 <script type="text/javascript" src=" {{ URL::asset('/qr_login/option2/js/qrcodelib.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('/qr_login/option2/js/webcodecamjs.js ') }}"></script>
 
