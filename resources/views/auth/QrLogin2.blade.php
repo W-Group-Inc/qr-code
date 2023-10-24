@@ -213,6 +213,7 @@ navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
             alert(message);
         },
         cameraError: function(error) {
+            alert(error);
             var p, message = "Error detected with the following3 parameters:\n";
             if (error.name == "NotSupportedError") {
                 var ans = confirm("Your browser does not support getUserMedia via HTTP!\n(see: https:goo.gl/Y0ZkNV).\n You want to see github demo page in a new window?");
