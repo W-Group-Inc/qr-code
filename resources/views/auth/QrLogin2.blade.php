@@ -19,6 +19,8 @@ QR Login
                 <div class="well" style="position: relative;display: inline-block;style='width:100%';">
                     
                     <video width="420" height="420" id="qr-video" style='width:100%;'></video>
+                    <audio id="scanSound" preload="auto" src="{{asset('success.mp3')}}"></audio>
+                    <audio id="errorSound" preload="auto" src="error.mp3"></audio>
                 </div>
             </div>
             <div class="col-md-8">
@@ -103,6 +105,7 @@ function CallAjaxLoginQr(code) {
     const scanner = new Instascan.Scanner({ video: videoElement });
 
     scanner.addListener("scan", function (content) {
+        playSound(scanSound);
         CallAjaxLoginQr(content);
     });
 
@@ -116,6 +119,12 @@ function CallAjaxLoginQr(code) {
     }).catch(function (error) {
         console.error("Error accessing camera:", error);
     });
+
+    function playSound(audioElement) {
+            if (audioElement && audioElement.play) {
+                audioElement.play();
+            }
+        }
 </script>
 <script>
     var span = document.getElementById('time');
