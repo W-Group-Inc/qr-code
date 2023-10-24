@@ -120,13 +120,14 @@ QR Login
 
 //add constraints object
 var constraints = {
-    audio:true,
-    video:true};
+    audio:false,
+    video:false};
 
 //call getUserMedia
 navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream){
 
    }).catch(function(err){
+    alert('renz');
         console.log("There's an error!" + err.message);
     })
 
