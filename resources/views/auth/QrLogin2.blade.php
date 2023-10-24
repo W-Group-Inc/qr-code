@@ -1,37 +1,30 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Video Camera Example</title>
+    <title>QR Code Scanner</title>
 </head>
 <body>
-    <video id="cameraFeed" autoplay playsinline></video>
-    <button id="startButton">Start Camera</button>
-    <button id="stopButton" disabled>Stop Camera</button>
+    <h1>QR Code Scanner</h1>
+    <video id="qr-video" width="300" height="300"></video>
 
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
     <script>
-        const cameraFeed = document.getElementById('cameraFeed');
-        const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        let stream;
+        const videoElement = document.getElementById("qr-video");
+        const scanner = new Instascan.Scanner({ video: videoElement });
 
-        startButton.addEventListener('click', async () => {
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                cameraFeed.srcObject = stream;
-                startButton.disabled = true;
-                stopButton.disabled = false;
-            } catch (error) {
-                console.error('Error accessing the camera:', error);
-            }
+        scanner.addListener("scan", function (content) {
+            console.log("QR Code Scanned:", content);
         });
 
-        stopButton.addEventListener('click', () => {
-            if (stream) {
-                const tracks = stream.getTracks();
-                tracks.forEach(track => track.stop());
-                cameraFeed.srcObject = null;
-                startButton.disabled = false;
-                stopButton.disabled = true;
+        Instascan.Camera.getCameras().then(function (cameras) {
+            if (cameras.length > 0) {
+                const selectedCamera = cameras[0]; // You can select a different camera if multiple are available.
+                scanner.start(selectedCamera);
+            } else {
+                console.error("No cameras found.");
             }
+        }).catch(function (error) {
+            console.error("Error accessing camera:", error);
         });
     </script>
 </body>
