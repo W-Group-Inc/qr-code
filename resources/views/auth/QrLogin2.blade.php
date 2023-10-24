@@ -58,7 +58,7 @@ QR Login
 
                 <div class="thumbnail" id="result">
                     <div class="well">
-                        <img width="220" height="140" id="scanned-img" src="">
+                        <img width="220" height="140" id="scanned-img" src="{{asset('images/icon.png')}}">
                         
                     <div class="caption">
                         <h3>Employee Name</h3>
