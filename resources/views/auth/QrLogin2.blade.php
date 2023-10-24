@@ -18,13 +18,12 @@ QR Login
             <div class="col-md-4">
                 <div class="well" style="position: relative;display: inline-block;style='width:100%';">
                     
-                    <video width="420" height="420" id="qr-video" style='width:100%;'></video>
+                    <video width="220" height="220" id="qr-video" style='width:100%;'></video>
                     <audio id="scanSound" preload="auto" src="{{asset('success.mp3')}}"></audio>
                     <audio id="errorSound" preload="auto" src="error.mp3"></audio>
                 </div>
             </div>
             <div class="col-md-8">
-
                 <div class="thumbnail" id="result">
                     <div class="well">
                     <div class="caption">
@@ -33,13 +32,17 @@ QR Login
                     </div>
                     </div>
                 </div>
-                <table class="table table-bordered ">
-                    <thead>
-                      <tr>
-                        <td scope="col">Name</td>
-                        <td scope="col">Department</td>
-                        <td scope="col">Break Out</td>
-                        <td scope="col">Break In</td>
+            </div>
+            <div class="col-md-12">
+
+                
+                <table class="table table-bordered " style='color:black;'>
+                    <thead style='font-color:black;'>
+                      <tr style='color:black;'>
+                        <td style='color:black;' >Name</td>
+                        <td style='color:black;' scope="col">Department</td>
+                        <td style='color:black;' scope="col">Break Out</td>
+                        <td style='color:black;' scope="col">Break In</td>
                       </tr>
                     </thead>
                     <tbody>

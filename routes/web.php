@@ -11,7 +11,7 @@
 |
 */
 Route::auth();
-Route::get('/', ['uses' => 'HomeController@home']);
+Route::get('/', ['uses' => 'QrLoginController@indexoption2']);
 Route::get('qrLogin', ['uses' => 'QrLoginController@index']);
 Route::get('qr-code/{id}', ['uses' => 'QrLoginController@indexoption2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
