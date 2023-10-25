@@ -69,13 +69,13 @@
                 margin-bottom: 30px;
             }
             body {
-			padding-top: 70px;
+			padding-top: 20px;
 		}
         </style>
 	@yield('style')
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	{{-- <nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <!-- Brand and toggle get grouped for better mobile display -->
 	        <div class="navbar-header">
@@ -95,7 +95,7 @@
 			</div>
 
 	    </div><!-- /.container-fluid -->
-	</nav>
+	</nav> --}}
 
 	<div class="container">
 		@yield('content')
