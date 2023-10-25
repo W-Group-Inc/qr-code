@@ -91,7 +91,7 @@ successMessage.style.display = "block";
 // Hide the message after a certain duration (e.g., 3 seconds)
 setTimeout(function () {
   successMessage.style.display = "none";
-}, 1000); // 3000 milliseconds (3 seconds)
+}, 2000); // 3000 milliseconds (3 seconds)
     
 }
 function CallAjaxLoginQr(code) {
