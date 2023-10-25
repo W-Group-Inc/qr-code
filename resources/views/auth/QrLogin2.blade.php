@@ -25,7 +25,7 @@ QR Login
 <div class="container" id="QR-Code">
     <div class='row'>
         <div class='col-md-12 text-center'>
-            <h1 id='time'></h1>
+            <h1 style='font-size: 100px;' id='time'></h1>
         </div>
     </div>
     <div class='row'>
