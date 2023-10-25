@@ -4,6 +4,21 @@ QR Login
 @stop
 
 @section('style')
+<style>
+ .success-message {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+}
+</style>
 @stop
 
 @section('content')
@@ -14,6 +29,9 @@ QR Login
         </div>
     </div>
     <div class='row'>
+        <div id="successMessage" style="display: none;" class="success-message">
+        Success! Qr Code Scanned.
+        </div>
         <div class="col-md-12 text-center">
             <div class="well" style="position: relative;display: inline-block;style='width:100%;';">
 
@@ -62,6 +80,20 @@ QR Login
 @section('scripts')
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
+
+function show_message()
+{
+    var successMessage = document.getElementById("successMessage");
+
+// Display the success message
+successMessage.style.display = "block";
+
+// Hide the message after a certain duration (e.g., 3 seconds)
+setTimeout(function () {
+  successMessage.style.display = "none";
+}, 1000); // 3000 milliseconds (3 seconds)
+    
+}
 function CallAjaxLoginQr(code) {
     $.ajax({
         type: "POST",
@@ -101,6 +133,7 @@ function playScanSound() {
     scanner.addListener("scan", function (content) {
         playScanSound(scanSound);
         CallAjaxLoginQr(content);
+        show_message();
     });
 
     Instascan.Camera.getCameras().then(function (cameras) {
