@@ -133,7 +133,7 @@
 
 .profile_info h2 {
   font-size: 14px;
-  color: #ECF0F1;
+  color: #000000;
   margin: 0;
   font-weight: 300; }
 
@@ -570,7 +570,7 @@ a:hover, a:focus {
   font-weight: 400;
   font-size: 22px;
   width: 100%;
-  color: #ECF0F1 !important;
+  color: #000000 !important;
   margin-left: 0 !important;
   line-height: 59px;
   display: block;
@@ -4051,7 +4051,7 @@ ul.notifications {
 
 .daterangepicker.picker_1 {
   background: #34495E;
-  color: #ECF0F1; }
+  color: #000000; }
 
 .daterangepicker.picker_1 table.table-condensed thead tr:first-child {
   background: #1ABB9C; }

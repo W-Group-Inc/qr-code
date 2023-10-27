@@ -15,6 +15,7 @@ Route::get('qrLogin', ['uses' => 'QrLoginController@index']);
 Route::get('qr-code/{id}', ['uses' => 'QrLoginController@indexoption2']);
 Route::post('qrLogin', ['uses' => 'QrLoginController@checkUser']);
 Route::get('checkUserTest/{id}', ['uses' => 'QrLoginController@checkUserTest']);
+Route::get('breaks','QrLoginController@getBreaks');
 
 Route::get('register-employee','UserController@registerEmployee');
 Route::post('generate-qr-code','UserController@register');

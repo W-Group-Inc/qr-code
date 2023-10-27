@@ -18,7 +18,44 @@ QR Login
   display: none;
   z-index: 1000;
 }
+/* Style the video container with a border inside */
+.video {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add a border inside the video container */
+#qr-video {
+    width: 100%;
+    height: auto;
+      padding: -20px;
+    border: 4px solid #000; /* Set the border color and size */
+    box-sizing: border-box; /* Make the border stay inside the video */
+}
+
+/* Create a scanner line */
+#qr-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px; /* Adjust the height as needed for the scanning line */
+    background: #00ff00; /* Set the color of the scanning line */
+    animation: scan 3s linear infinite; /* Add a scanning animation */
+}
+
+/* Keyframe animation for the scanning line */
+@keyframes scan {
+    0% {
+        transform: translate(0, 0); /* Start position of the line */
+    }
+    100% {
+        transform: translate(0, 100%); /* End position of the line */
+    }
+}
 </style>
+
 @stop
 
 @section('content')
@@ -34,10 +71,10 @@ QR Login
         </div>
         <div class="col-md-12 text-center">
             <div class="well" style="position: relative;display: inline-block;style='width:100%;';">
-
-                <video width="300" height="320" id="qr-video" style='width:100%;'></video>
+                <div class='video'> 
+                <video class='video' width="300" height="320" id="qr-video" style='width:100%;'></video>
+                </div>
                 <audio id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
-                <audio id="errorSound" preload="auto" src="{{ asset('error.mp3') }}"></audio>
             </div>
         </div>
         <div class="col-md-12 text-center">

@@ -13,6 +13,23 @@ class QrLoginController extends Controller
     	
 		return view('auth.QrLogin');
 	}
+	public function getBreaks(Request $request)
+	{
+		$date = $request->date;
+		if($date == null)
+		{
+			$date = date('Y-m-d');
+		}
+		$attendances = Attendance::where('date',$date)->get();
+
+	return view('breaks',
+		array(
+			'attendances' => $attendances,
+			'date' => $date,
+		));
+
+
+	}
 	public function indexoption2(Request $request) {
 		$attendances = Attendance::orderBy('updated_at','desc')->take(20)->get();
     	
