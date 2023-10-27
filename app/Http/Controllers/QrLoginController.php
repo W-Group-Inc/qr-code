@@ -20,7 +20,7 @@ class QrLoginController extends Controller
 		{
 			$date = date('Y-m-d');
 		}
-		$attendances = Attendance::where('date',$date)->get();
+		$attendances = Attendance::where('date',$date)->orderBy('updated_at','desc')->get();
 
 	return view('breaks',
 		array(
