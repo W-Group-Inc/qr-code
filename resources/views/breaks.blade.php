@@ -40,16 +40,20 @@ Breaks
                         <td>{{$attendance->employee->department}}</td>
                         <td>{{$attendance->break_out}}</td>
                         <td>{{$attendance->break_in}}</td>
-                        <td>@if($attendance->break_in != null)
+                       @if($attendance->break_in != null)
                             @php
                                    $ob_start = new DateTime($attendance->break_out); 
                                         $ob_diff = $ob_start->diff(new DateTime($attendance->break_in));
                                         $work_diff_hours = round($ob_diff->s / 3600 + $ob_diff->i / 60 + $ob_diff->h + $ob_diff->days * 24, 2);
                             @endphp
-
+                            <td @if($work_diff_hours > 1) class='bg-danger text-white' @endif >
                             {{$work_diff_hours*60}} Minutes
+                            
+                            </td>
+                            @else
+                            <td class='bg-warning'>
+                            </td>
                             @endif
-                        </td>
                     </tr>
                     @endforeach
                 </tbody>
