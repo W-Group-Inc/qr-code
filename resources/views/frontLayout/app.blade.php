@@ -8,6 +8,7 @@
     
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{url('images/icon.png')}}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">

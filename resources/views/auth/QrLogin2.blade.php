@@ -29,7 +29,7 @@ QR Login
 #qr-video {
     width: 100%;
     height: auto;
-      padding: -20px;
+    padding: -20px;
     border: 4px solid #000; /* Set the border color and size */
     box-sizing: border-box; /* Make the border stay inside the video */
 }
