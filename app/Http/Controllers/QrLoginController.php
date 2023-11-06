@@ -7,6 +7,7 @@ use Sentinel;
 use App\User;
 use App\Employee;
 use App\Attendance;
+use App\Location;
 class QrLoginController extends Controller
 {
     public function index(Request $request) {
@@ -30,11 +31,14 @@ class QrLoginController extends Controller
 
 
 	}
-	public function indexoption2(Request $request) {
+	public function indexoption2(Request $request,$id) {
 		$attendances = Attendance::orderBy('updated_at','desc')->take(20)->get();
+		$location = Location::findOrfail($id);
     	
 		return view('auth.QrLogin2',
 		array(
+
+			'location' => $location,
 			'attendances' => $attendances,
 		));
 	}

@@ -61,6 +61,9 @@ QR Login
 @section('content')
 <div class="container" id="QR-Code">
     <div class='row'>
+        <div class="col-md-12 text-center">
+            <h1>{{$location->location}}</h1>
+        </div>
         <div class='col-md-12 text-center'>
             <h1 style='font-size: 100px;' id='time'></h1>
         </div>
@@ -69,6 +72,7 @@ QR Login
         <div id="successMessage" style="display: none;" class="success-message">
         Success! Qr Code Scanned.
         </div>
+       
         <div class="col-md-12 text-center">
             <div class="well" style="position: relative;display: inline-block;style='width:100%;';">
                 <div class='video'> 

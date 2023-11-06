@@ -12,4 +12,8 @@ class Attendance extends Model
     {
         return $this->belongsTo(Employee::class);
     }
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
 }
