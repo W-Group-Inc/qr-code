@@ -73,7 +73,7 @@ QR Login
         Success! Qr Code Scanned.
         </div>
        
-        <div class="col-md-12 text-center">
+        <div class="col-md-6 text-center">
             <div class="well" style="position: relative;display: inline-block;style='width:100%;';">
                 <div class='video'> 
                 <video class='video' width="300" height="300" id="qr-video" ></video>
@@ -81,15 +81,21 @@ QR Login
                 <audio style='opacity:.1;' controls   autoplay  id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
             </div>
         </div>
-        <div class="col-md-12 text-center">
-            <div class="thumbnail" id="result">
-                <div class="well">
-                    <div class="caption">
-                        <h3>Employee Name: <span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
-                        <h3>Department Name: <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-6 text-center">
+            <table class="table table-bordered" border='1' style='color:black;width:100%;' >
+                <tr style='color:black;'>
+                    <th><h3>Employee Name</h3></th>
+                </tr>
+                <tr style='color:black;'>
+                    <td><h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3></td>
+                </tr>
+                <tr style='color:black;'>
+                    <th><h3>Department Name</h3></th>
+                </tr>
+                <tr style='color:black;'>
+                    <td><h3> <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3></td>
+                </tr>
+            </table>
         </div>
         <div class="col-md-12">
             <table class="table table-bordered" style='color:black;'>
