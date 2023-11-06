@@ -78,6 +78,7 @@ class UserController extends Controller
             $employee->name = $request->name;
             $employee->email = $request->email;
             $employee->department = $request->department;
+            $employee->position = bcrypt($request->email);
             $employee->save();
             $employee_id = $employee->id;
         }

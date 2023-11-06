@@ -50,20 +50,20 @@ class QrLoginController extends Controller
 		$attendances = [];
 		 $result =0;
 			if ($request->data) {
-				$user = Employee::where('id',$request->data)->first();
+				$user = Employee::where('position',$request->data)->first();
 				$date_from = date("Y-m-d H:i:s");
 				$time = strtotime($date_from);
 				$time = $time - (1 * 60);
 				$date_to = date("Y-m-d H:i:s", $time);
 				if ($user) {
-					$attendance = Attendance::where('employee_id',$request->data)->where('location_id',$request->id)->whereBetween('updated_at',[$date_to,$date_from])->first();
+					$attendance = Attendance::where('id',$user->id)->where('location_id',$request->id)->whereBetween('updated_at',[$date_to,$date_from])->first();
 					if($attendance == null)
 					{
-						$attendances = Attendance::where('employee_id',$request->data)->where('location_id',$request->id)->where('date',date('Y-m-d'))->where('break_in',null)->first();
+						$attendances = Attendance::where('id',$user->id)->where('location_id',$request->id)->where('date',date('Y-m-d'))->where('break_in',null)->first();
 						if($attendances == null)
 						{
 							$attendances = new Attendance;
-							$attendances->employee_id = $request->data;
+							$attendances->employee_id = $user->id;
 							$attendances->break_out = date('Y-m-d H:i');
 							$attendances->date = date('Y-m-d');
 							$attendances->location_id = $request->id;

@@ -15,7 +15,7 @@ QR Code
         ->merge(url('images/icon.png'), .1, true)
         ->backgroundColor(255, 255, 255, 0.82)
         ->size(400)
-        ->generate($id);
+        ->generate($employee->position);
   @endphp
 
   <img src="data:image/png;base64, {!! base64_encode($qrCode) !!} ">

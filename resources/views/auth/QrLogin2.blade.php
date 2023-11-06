@@ -85,8 +85,8 @@ QR Login
             <div class="thumbnail" id="result">
                 <div class="well">
                     <div class="caption">
-                        <h3>Employee Name: <span id="name-result">{{($attendances->first())->employee->name}}</span></h3>
-                        <h3>Department Name: <span id="dept-result">{{($attendances->first())->employee->department}}</span></h3>
+                        <h3>Employee Name: <span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
+                        <h3>Department Name: <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
                     </div>
                 </div>
             </div>
@@ -136,6 +136,7 @@ setTimeout(function () {
     
 }
 function CallAjaxLoginQr(code) {
+    console.log(code);
     $.ajax({
         type: "POST",
         cache: false,
