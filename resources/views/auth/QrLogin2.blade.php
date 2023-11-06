@@ -78,7 +78,7 @@ QR Login
                 <div class='video'> 
                 <video class='video' width="300" height="300" id="qr-video" ></video>
                 </div>
-                <audio style='opacity:.2;' controls   autoplay  id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
+                <audio style='opacity:.01;' controls   autoplay  id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
             </div>
         </div>
         <div class="col-md-12 text-center">
