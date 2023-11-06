@@ -82,23 +82,18 @@ QR Login
             </div>
         </div>
         <div class="col-md-6 text-center">
-            <table class="table table-bordered"  border='1' style='color:black;width:100%;' >
-                <tr style='color:black;'>
-                    <th><h4>Employee Name</h4></th>
-                </tr>
-                <tr style='color:black;'>
-                    <td><h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3></td>
-                </tr>
-                <tr style='color:black;'>
-                    <th><h4>Department Name</h4></th>
-                </tr>
-                <tr style='color:black;'>
-                    <td><h3> <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3></td>
-                </tr>
-            </table>
+            <div class="thumbnail" id="result">
+                <div class="well">
+                    <div class="caption">
+                        
+                        <h5>Employee Name</h5> <br> <h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
+                        <h5>Department Name </h5> <br> <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-12">
-            <table class="table table-bordered" id='attendan' style='color:black;'>
+            <table class="table table-bordered" style='color:black;'>
                 <thead style='font-color:black;'>
                 <tr style='color:black;'>
                     <td style='color:black;'>Name</td>
@@ -156,9 +151,9 @@ function CallAjaxLoginQr(code) {
                 if (data.attendance.length == 0) {
                 } else {
                     if (data.attendance.break_in) {
-                        $('<tr><td>' + data.user.name + '</td><td>' + data.user.department + '</td><td>' + data.attendance.break_out + '</td><td>' + data.attendance.break_in + '</td></tr>').insertBefore('#attendan table > tbody > tr:first');
+                        $('<tr><td>' + data.user.name + '</td><td>' + data.user.department + '</td><td>' + data.attendance.break_out + '</td><td>' + data.attendance.break_in + '</td></tr>').insertBefore('table > tbody > tr:first');
                     } else {
-                        $('<tr><td>' + data.user.name + '</td><td>' + data.user.department + '</td><td>' + data.attendance.break_out + '</td><td></td></tr>').insertBefore('#attendan table > tbody > tr:first');
+                        $('<tr><td>' + data.user.name + '</td><td>' + data.user.department + '</td><td>' + data.attendance.break_out + '</td><td></td></tr>').insertBefore('table > tbody > tr:first');
                     }
                 }
             } else {
