@@ -78,6 +78,7 @@ QR Login
                 <div class='video'> 
                 <video class='video' width="300" height="300" id="qr-video" ></video>
                 </div>
+                <audio controls   autoplay  id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
             </div>
         </div>
         <div class="col-md-12 text-center">
@@ -111,14 +112,6 @@ QR Login
                     @endforeach
                 </tbody>
             </table>
-        </div>
-    </div>
-    <div class='row'>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            
-            <audio controls   autoplay  id="scanSound" >
-                <source src="{{ asset('success.mp3') }}" type="audio/mpeg">
-            </audio>
         </div>
     </div>
 </div>
