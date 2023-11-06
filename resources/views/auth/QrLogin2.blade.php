@@ -86,8 +86,8 @@ QR Login
                 <div class="well">
                     <div class="caption">
                         
-                        <h5>Employee Name</h5> <br> <h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
-                        <h5>Department Name </h5> <br> <h3><span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
+                        <h6>Employee</h6> <br> <h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
+                         <br> <h3><span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
                     </div>
                 </div>
             </div>
