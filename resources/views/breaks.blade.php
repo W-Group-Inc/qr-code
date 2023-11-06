@@ -28,6 +28,7 @@ Breaks
                 <tr style='color:black;'>
                     <td style='color:black;'>Name</td>
                     <td style='color:black;' scope="col">Department</td>
+                    <td style='color:black;' scope="col">Location</td>
                     <td style='color:black;' scope="col">Out</td>
                     <td style='color:black;' scope="col">In</td>
                     <td style='color:black;' scope="col">Difference</td>
@@ -38,6 +39,7 @@ Breaks
                     <tr>
                         <td>{{$attendance->employee->name}}</td>
                         <td>{{$attendance->employee->department}}</td>
+                        <td>@if($attendance->location){{$attendance->location->location}}@endif</td>
                         <td>{{$attendance->break_out}}</td>
                         <td>{{$attendance->break_in}}</td>
                        @if($attendance->break_in != null)

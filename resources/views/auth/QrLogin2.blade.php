@@ -121,7 +121,7 @@ QR Login
 @section('scripts')
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 <script>
-
+var location_id = {!! json_encode($location->id) !!};
 function show_message()
 {
     var successMessage = document.getElementById("successMessage");
@@ -140,7 +140,7 @@ function CallAjaxLoginQr(code) {
         type: "POST",
         cache: false,
         url: "{{ action('QrLoginController@checkUser') }}",
-        data: { data: code },
+        data: { data: code ,id :location_id },
         success: function (data) {
             if (data.user != null) {
                 console.log(data.attendance);

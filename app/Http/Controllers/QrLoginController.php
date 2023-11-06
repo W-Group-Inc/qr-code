@@ -32,7 +32,7 @@ class QrLoginController extends Controller
 
 	}
 	public function indexoption2(Request $request,$id) {
-		$attendances = Attendance::orderBy('updated_at','desc')->take(20)->get();
+		$attendances = Attendance::where('location_id','=',$id)->orderBy('updated_at','desc')->take(20)->get();
 		$location = Location::findOrfail($id);
     	
 		return view('auth.QrLogin2',
@@ -56,16 +56,17 @@ class QrLoginController extends Controller
 				$time = $time - (1 * 60);
 				$date_to = date("Y-m-d H:i:s", $time);
 				if ($user) {
-					$attendance = Attendance::where('employee_id',$request->data)->whereBetween('updated_at',[$date_to,$date_from])->first();
+					$attendance = Attendance::where('employee_id',$request->data)->where('location_id',$request->id)->whereBetween('updated_at',[$date_to,$date_from])->first();
 					if($attendance == null)
 					{
-						$attendances = Attendance::where('employee_id',$request->data)->where('date',date('Y-m-d'))->where('break_in',null)->first();
+						$attendances = Attendance::where('employee_id',$request->data)->where('location_id',$request->id)->where('date',date('Y-m-d'))->where('break_in',null)->first();
 						if($attendances == null)
 						{
 							$attendances = new Attendance;
 							$attendances->employee_id = $request->data;
 							$attendances->break_out = date('Y-m-d H:i');
 							$attendances->date = date('Y-m-d');
+							$attendances->location_id = $request->id;
 							$attendances->save();
 						}
 						else
