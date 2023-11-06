@@ -81,12 +81,12 @@ QR Login
                 <audio style='opacity:.1;' controls   autoplay  id="scanSound" preload="auto" src="{{ asset('success.mp3') }}"></audio>
             </div>
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-left">
             <div class="thumbnail" id="result">
                 <div class="well">
                     <div class="caption">
                         
-                        <h6>Employee</h6> <br> <h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
+                        <h6>Last Employee</h6> <br> <h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3>
                         <h3><span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3>
                     </div>
                 </div>
