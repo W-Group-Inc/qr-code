@@ -84,13 +84,13 @@ QR Login
         <div class="col-md-6 text-center">
             <table class="table table-bordered"  border='1' style='color:black;width:100%;' >
                 <tr style='color:black;'>
-                    <th><h3>Employee Name</h3></th>
+                    <th><h4>Employee Name</h4></th>
                 </tr>
                 <tr style='color:black;'>
                     <td><h3><span id="name-result">@if($attendances->first()){{($attendances->first())->employee->name}}@endif</span></h3></td>
                 </tr>
                 <tr style='color:black;'>
-                    <th><h3>Department Name</h3></th>
+                    <th><h4>Department Name</h4></th>
                 </tr>
                 <tr style='color:black;'>
                     <td><h3> <span id="dept-result">@if($attendances->first()){{($attendances->first())->employee->department}}@endif</span></h3></td>
