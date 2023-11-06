@@ -117,7 +117,7 @@ QR Login
         <div class="col-md-12 col-sm-12 col-xs-12">
             
             <audio controls   autoplay  id="scanSound" >
-                <source src="{{ asset('success.mp3') }}" type="audio/ogg">
+                <source src="{{ asset('success.mp3') }}" type="audio/mpeg">
             </audio>
         </div>
     </div>
