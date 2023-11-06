@@ -19,6 +19,18 @@
 
         <!-- Styles -->
         <style>
+            .con {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 20%;
+}
+
             html, body {
                 background-color: #fff;
                 color: #000000 !important;

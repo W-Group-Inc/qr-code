@@ -181,7 +181,7 @@ function playScanSound() {
             // Check if brightness is supported
             if (selectedCamera.getCapabilities && selectedCamera.getCapabilities().brightness) {
                 selectedCamera.applyConstraints({
-                    advanced: [{ brightness: .2 }] // Adjust the brightness value as needed
+                    advanced: [{ brightness: 1 }] // Adjust the brightness value as needed
                 }).catch(function (error) {
                     console.error("Error adjusting brightness:", error);
                 });

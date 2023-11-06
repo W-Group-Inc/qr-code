@@ -16,14 +16,14 @@ QR Code
        <strong>{{Session::get('status')}}!</strong> {!! Session::get('message') !!}
       </div>
     @endif 
-    <form method='POST' action='generate-qr-code'  enctype="multipart/form-data" >  
+  <form method='POST' action='generate-qr-code'  enctype="multipart/form-data" >  
         {!! csrf_field() !!}
             
             <div class="form-group  {{ $errors->has('name') ? 'has-error' : ''}}">
               <label for="name" class="cols-sm-2 control-label">Name</label>
               <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  {{-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> --}}
                   <input type='text' class='form-control' id='name' name='name' placeholder='Enter your name' required>
                 </div>
                 {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
@@ -34,7 +34,7 @@ QR Code
               <label for="email" class="cols-sm-2 control-label">Company Email</label>
               <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  {{-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> --}}
                   <input type='email' class='form-control' id='first_name' name='email' placeholder='Enter your email' required>
                 </div>
                  {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
@@ -44,12 +44,16 @@ QR Code
               <label for="department" class="cols-sm-2 control-label">Department</label>
               <div class="cols-sm-10">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-list fa" aria-hidden="true"></i></span>
+                  {{-- <span class="input-group-addon"><i class="fa fa-list fa" aria-hidden="true"></i></span> --}}
                   <input type='text' class='form-control' id='department' name='department' placeholder='Enter your department' required>
                 </div>
                  {!! $errors->first('department', '<p class="help-block">:message</p>') !!}
               </div>
             </div>
+            <label for="agreeCheckbox">
+              <b><i><input type="checkbox" id="agreeCheckbox" name="agree" required>
+              I confirm that all provided information is accurate and complete.</i></b>
+          </label>
 
             <div class="form-group  {{ $errors->has('password') ? 'has-error' : ''}} ">
               <button class="btn btn-primary btn-lg btn-block register-button" type="submit" >Generate QR Code</button>
