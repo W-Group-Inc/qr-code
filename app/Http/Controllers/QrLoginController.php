@@ -56,10 +56,10 @@ class QrLoginController extends Controller
 				$time = $time - (1 * 60);
 				$date_to = date("Y-m-d H:i:s", $time);
 				if ($user) {
-					$attendance = Attendance::where('id',$user->id)->where('location_id',$request->id)->whereBetween('updated_at',[$date_to,$date_from])->first();
+					$attendance = Attendance::where('employee_id',$user->id)->where('location_id',$request->id)->whereBetween('updated_at',[$date_to,$date_from])->first();
 					if($attendance == null)
 					{
-						$attendances = Attendance::where('id',$user->id)->where('location_id',$request->id)->where('date',date('Y-m-d'))->where('break_in',null)->first();
+						$attendances = Attendance::where('employee_id',$user->id)->where('location_id',$request->id)->where('date',date('Y-m-d'))->where('break_in',null)->first();
 						if($attendances == null)
 						{
 							$attendances = new Attendance;
