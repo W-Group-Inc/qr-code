@@ -93,13 +93,13 @@ QR Login
             </div>
         </div>
         <div class="col-md-12">
-            <table class="table table-bordered" style='color:black;'>
-                <thead style='font-color:black;'>
-                <tr style='color:black;'>
-                    <td style='color:black;'>Name</td>
-                    <td style='color:black;' scope="col">Department</td>
-                    <td style='color:black;' scope="col">Break Out</td>
-                    <td style='color:black;' scope="col">Break In</td>
+            <table class="table table-bordered" style='color:white;'>
+                <thead style='font-color:white;'>
+                <tr style='color:white;'>
+                    <td style='color:white;'>Name</td>
+                    <td style='color:white;' scope="col">Department</td>
+                    <td style='color:white;' scope="col">Break Out</td>
+                    <td style='color:white;' scope="col">Break In</td>
                 </tr>
                 </thead>
                 <tbody>

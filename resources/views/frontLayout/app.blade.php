@@ -5,7 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <meta name="theme-color" content="#6777ef"/>
+	<link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
+	<link rel="manifest" href="{{ asset('/manifest.json') }}">
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<title>@yield('title')</title>
     <link rel="shortcut icon" href="{{url('images/icon.png')}}">
@@ -32,8 +34,8 @@
 }
 
             html, body {
-                background-color: #fff;
-                color: #000000 !important;
+                background-color: grey;
+                color: #ffffff !important;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -88,7 +90,7 @@
         </style>
 	@yield('style')
 </head>
-<body>
+<body class='bg-dark'>
 	{{-- <nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <!-- Brand and toggle get grouped for better mobile display -->
@@ -158,6 +160,14 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           }
         });
+    </script>
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
     </script>
 	@yield('scripts')
 </body>
