@@ -90,7 +90,7 @@
         </style>
 	@yield('style')
 </head>
-<body class='bg-dark'>
+<body >
 	{{-- <nav class="navbar navbar-default navbar-fixed-top">
 	    <div class="container">
 	        <!-- Brand and toggle get grouped for better mobile display -->
