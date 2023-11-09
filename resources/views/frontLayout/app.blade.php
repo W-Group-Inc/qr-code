@@ -34,7 +34,7 @@
 }
 
             html, body {
-                background-color: grey;
+                background-color: black;
                 color: #ffffff !important;
                 font-weight: 100;
                 height: 100vh;
