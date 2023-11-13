@@ -1,4 +1,4 @@
-@extends('frontLayout.app')
+@extends('frontLayout.app1')
 @section('title')
 Breaks
 @stop
@@ -24,24 +24,24 @@ Breaks
     <div class='row'>
         <div class="col-lg-12">
             <table class="table table-striped table-bordered breaks" style="width:100%" id='breaks'>
-                <thead style='font-color:white;'>
-                <tr style='color:white;'>
-                    <td style='color:white;'>Name</td>
-                    <td style='color:white;' scope="col">Department</td>
-                    <td style='color:white;' scope="col">Location</td>
-                    <td style='color:white;' scope="col">Out</td>
-                    <td style='color:white;' scope="col">In</td>
-                    <td style='color:white;' scope="col">Difference</td>
+                <thead style='font-color:black;'>
+                <tr style='color:black;'>
+                    <td style='color:black;'>Name</td>
+                    <td style='color:black;' scope="col">Department</td>
+                    <td style='color:black;' scope="col">Location</td>
+                    <td style='color:black;' scope="col">Out</td>
+                    <td style='color:black;' scope="col">In</td>
+                    <td style='color:black;' scope="col">Difference</td>
                 </tr>
                 </thead>
                 <tbody>
                     @foreach($attendances as $attendance)
-                    <tr  style='color:white;'>
-                        <td  style='color:white;'>{{$attendance->employee->name}}</td>
-                        <td  style='color:white;'>{{$attendance->employee->department}}</td>
-                        <td  style='color:white;'>@if($attendance->location){{$attendance->location->location}}@endif</td>
-                        <td  style='color:white;'>{{$attendance->break_out}}</td>
-                        <td  style='color:white;'>{{$attendance->break_in}}</td>
+                    <tr>
+                        <td>{{$attendance->employee->name}}</td>
+                        <td>{{$attendance->employee->department}}</td>
+                        <td>@if($attendance->location){{$attendance->location->location}}@endif</td>
+                        <td>{{$attendance->break_out}}</td>
+                        <td>{{$attendance->break_in}}</td>
                        @if($attendance->break_in != null)
                             @php
                                    $ob_start = new DateTime($attendance->break_out); 
