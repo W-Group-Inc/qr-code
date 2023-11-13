@@ -24,14 +24,14 @@ Breaks
     <div class='row'>
         <div class="col-lg-12">
             <table class="table table-striped table-bordered breaks" style="width:100%" id='breaks'>
-                <thead style='font-color:black;'>
-                <tr style='color:black;'>
-                    <td style='color:black;'>Name</td>
-                    <td style='color:black;' scope="col">Department</td>
-                    <td style='color:black;' scope="col">Location</td>
-                    <td style='color:black;' scope="col">Out</td>
-                    <td style='color:black;' scope="col">In</td>
-                    <td style='color:black;' scope="col">Difference</td>
+                <thead style='font-color:white;'>
+                <tr style='color:white;'>
+                    <td style='color:white;'>Name</td>
+                    <td style='color:white;' scope="col">Department</td>
+                    <td style='color:white;' scope="col">Location</td>
+                    <td style='color:white;' scope="col">Out</td>
+                    <td style='color:white;' scope="col">In</td>
+                    <td style='color:white;' scope="col">Difference</td>
                 </tr>
                 </thead>
                 <tbody>

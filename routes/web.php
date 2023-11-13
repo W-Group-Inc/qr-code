@@ -20,3 +20,6 @@ Route::get('breaks','QrLoginController@getBreaks');
 Route::get('register-employee','UserController@registerEmployee');
 Route::post('generate-qr-code','UserController@register');
 Route::get('my-qrcode/{id}','UserController@ViewUserQrCode');
+
+
+Route::get('employees','UserController@employees');

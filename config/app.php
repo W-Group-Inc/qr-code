@@ -184,6 +184,9 @@ return [
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         //Qr login 
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        
+        Ladumor\LaravelPwa\PWAServiceProvider::class,
+        
 
 
     ],
@@ -241,6 +244,7 @@ return [
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
          //QR GEERATOR
          'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+         'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
 
     ],
 

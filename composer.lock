@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2d48e1665c2990eb0f831cf0cd49c2e",
+    "content-hash": "d2c3d479cb03a0ed7950ad7936d864e9",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -403,6 +403,63 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "ladumor/laravel-pwa",
+            "version": "v0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shailesh-ladumor/laravel-pwa.git",
+                "reference": "1867899d6916803aef7ea02f489597555cc4ab02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shailesh-ladumor/laravel-pwa/zipball/1867899d6916803aef7ea02f489597555cc4ab02",
+                "reference": "1867899d6916803aef7ea02f489597555cc4ab02",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.4",
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\Ladumor\\LaravelPwa\\PWAServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelPwa": "Ladumor\\LaravelPwa\\LaravelPwa"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ladumor\\LaravelPwa\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shailesh Ladumor",
+                    "email": "shaileshmladumor@gmail.com"
+                }
+            ],
+            "description": "this package used for the make pwa website.",
+            "keywords": [
+                "laravel",
+                "laravel-pwa",
+                "php",
+                "pwa-laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/shailesh-ladumor/laravel-pwa/issues",
+                "source": "https://github.com/shailesh-ladumor/laravel-pwa/tree/v0.0.4"
+            },
+            "time": "2023-09-02T13:09:30+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1241,6 +1298,56 @@
             ],
             "description": "This is a CRUD generator for Laravel 5.4",
             "time": "2017-05-09T10:32:15+00:00"
+        },
+        {
+            "name": "silviolleite/laravelpwa",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silviolleite/laravel-pwa.git",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silviolleite/laravel-pwa/zipball/5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "reference": "5f7135d2ee870af01793c9fdf6b1b932b546e20e",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelPWA\\Providers\\LaravelPWAServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelPWA\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Silvio Luis Leite",
+                    "email": "silviolleite@gmail.com"
+                }
+            ],
+            "description": "Looks like an app, feels like an app, but NOT an app.",
+            "keywords": [
+                "laravel",
+                "php",
+                "progressive web apps",
+                "pwa"
+            ],
+            "support": {
+                "issues": "https://github.com/silviolleite/laravel-pwa/issues",
+                "source": "https://github.com/silviolleite/laravel-pwa/tree/2.0.3"
+            },
+            "time": "2020-08-20T12:19:16+00:00"
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
@@ -3674,5 +3781,6 @@
     "platform": {
         "php": ">=5.6.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
