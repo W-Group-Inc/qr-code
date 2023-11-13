@@ -36,12 +36,12 @@ Breaks
                 </thead>
                 <tbody>
                     @foreach($attendances as $attendance)
-                    <tr>
-                        <td>{{$attendance->employee->name}}</td>
-                        <td>{{$attendance->employee->department}}</td>
-                        <td>@if($attendance->location){{$attendance->location->location}}@endif</td>
-                        <td>{{$attendance->break_out}}</td>
-                        <td>{{$attendance->break_in}}</td>
+                    <tr  style='color:white;'>
+                        <td  style='color:white;'>{{$attendance->employee->name}}</td>
+                        <td  style='color:white;'>{{$attendance->employee->department}}</td>
+                        <td  style='color:white;'>@if($attendance->location){{$attendance->location->location}}@endif</td>
+                        <td  style='color:white;'>{{$attendance->break_out}}</td>
+                        <td  style='color:white;'>{{$attendance->break_in}}</td>
                        @if($attendance->break_in != null)
                             @php
                                    $ob_start = new DateTime($attendance->break_out); 
