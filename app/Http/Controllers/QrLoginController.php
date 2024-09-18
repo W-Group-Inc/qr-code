@@ -14,6 +14,14 @@ class QrLoginController extends Controller
     	
 		return view('auth.QrLogin');
 	}
+	public function saveReason(Request $request,$id)
+	{
+		$attendances = Attendance::findOrfail($id);
+		$attendances->reason = $request->reason;
+		$attendances->save();
+
+		return back();
+	}
 	public function getBreaks(Request $request)
 	{
 		$date = $request->date;

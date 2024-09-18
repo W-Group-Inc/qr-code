@@ -26,12 +26,14 @@ Breaks
             <table class="table table-striped table-bordered breaks" style="width:100%" id='breaks'>
                 <thead style='font-color:black;'>
                 <tr style='color:black;'>
-                    <td style='color:black;'>Name</td>
-                    <td style='color:black;' scope="col">Department</td>
-                    <td style='color:black;' scope="col">Location</td>
-                    <td style='color:black;' scope="col">Out</td>
-                    <td style='color:black;' scope="col">In</td>
-                    <td style='color:black;' scope="col">Difference</td>
+                    <th style='color:black;'>Name</th>
+                    <th style='color:black;' scope="col">Department</th>
+                    <th style='color:black;' scope="col">Location</th>
+                    <th style='color:black;' scope="col">Out</th>
+                    <th style='color:black;' scope="col">In</th>
+                    <th style='color:black;' scope="col">Difference</th>
+                    <th style='color:black;' scope="col">Reason</th>
+                    <th style='color:black;' scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -56,7 +58,12 @@ Breaks
                             <td class='bg-warning'>
                             </td>
                             @endif
+                            <form method='post' action='edit-reason/{{$attendance->id}}' onsubmit='show();'  enctype="multipart/form-data" >
+                                {{ csrf_field() }}
+                        <td style='color:black;' scope="col"><textarea name='reason' rows="5" cols="100" charswidth="23" class="form-control-sm form-control " required>{{$attendance->reason}}</textarea></td>
+                        <td style='color:black;' scope="col"> <button type='submit'  class="btn btn-primary" >Save</button> </td></form>
                     </tr>
+         
                     @endforeach
                 </tbody>
             </table>
