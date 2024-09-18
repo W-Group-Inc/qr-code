@@ -54,7 +54,51 @@ QR Login
         transform: translate(0, 100%); /* End position of the line */
     }
 }
+/* The Modal (background) */
+
 </style>
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+    
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
 
 @stop
 
@@ -116,12 +160,49 @@ QR Login
         </div>
     </div>
 </div>
+<input name='code' value='' id='code' type='hidden'>
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class='row mt-4'>
+            <div class='col-md-4'> <button type="button" id='am_break' value="AM Break" class="btn btn-primary btn-lg btn-block">AM Break</button></div>
+            <div class='col-md-4'> <button type="button" id='pm_break' value="PM Break" class="btn btn-primary btn-lg btn-block">PM Break</button></div>
+            <div class='col-md-4'> <button type="button"  id='lunch_break' value="Lunch Break" class="btn btn-primary btn-lg btn-block">Lunch Break </button></div>
+        </div>
+        <div class='row mt-4'>
+            <div class='col-md-4'> <button type="button" value="Pick Up (Order)"  class="btn btn-primary btn-lg btn-block">Pick Up (Order) </button></div>
+            <div class='col-md-4'> <button type="button" value="OB going to bank" class="btn btn-primary btn-lg btn-block">OB going to bank </button></div>
+            <div class='col-md-4'> <button type="button" value="OB Field work" class="btn btn-primary btn-lg btn-block">OB Field work</button></div>
+        </div>
+        <div class='row mt-4'>
+            <div class='col-md-4'> <button type="button" value="OB go to other bldgs" class="btn btn-primary btn-lg btn-block">OB go to other bldgs</button></div>
+            <div class='col-md-4'> <button type="button" value="OB go to the plant" class="btn btn-primary btn-lg btn-block">OB go to the plant</button></div>
+            <div class='col-md-4'> <button type="button" value="Others" class="btn btn-danger btn-lg btn-block">Others</button></div>
+        </div>
+    </div>
+  
+  </div>
 @endsection
 
 @if( !Sentinel::getUser())
 @section('scripts')
 <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+<script type="text/javascript">
+ $("button").click(function() {
+    var fired_button = $(this).val();
+    var code = document.getElementById("code").value;
+    // alert(fired_button);
+    post_action(code,fired_button);
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    show_message();
+
+});
+    </script>
 <script>
+    
 var location_id = {!! json_encode($location->id) !!};
 function show_message()
 {
@@ -137,12 +218,53 @@ setTimeout(function () {
     
 }
 function CallAjaxLoginQr(code) {
-    console.log(code);
+    var time_now = document.getElementById('time').textContent;
+    
+    var timeToCheck = time_now;
+    var startTime_am_break = '07:00:00';
+    var endTime_am_break = '09:00:00';
+    var startTime_pm_break = '15:00:00';
+    var endTime_pm_break = '17:00:00';
+    var startTime_lunch_break = '12:00:00';
+    var endTime_lunch_break = '13:00:00';
+
+    // Convert time strings to Date objects for comparison
+    var timeToCheckDate = new Date('1970-01-01T' + timeToCheck + 'Z');
+    var startTimeDate = new Date('1970-01-01T' + startTime_am_break + 'Z');
+    var endTimeDate = new Date('1970-01-01T' + endTime_am_break + 'Z');
+    var startTimeDatepmbreak = new Date('1970-01-01T' + startTime_pm_break + 'Z');
+    var endTimeDatepmbreak = new Date('1970-01-01T' + endTime_pm_break + 'Z');
+    var startTimeDatelunch_break = new Date('1970-01-01T' + startTime_lunch_break + 'Z');
+    var endTimeDatelunch_break = new Date('1970-01-01T' + endTime_lunch_break + 'Z');
+
+    // Check if timeToCheck is between startTime and endTime
+    if (timeToCheckDate >= startTimeDate && timeToCheckDate <= endTimeDate) {
+        document.getElementById("am_break").disabled = false;
+    } else {
+        document.getElementById("am_break").disabled = true;
+    }
+    if (timeToCheckDate >= startTimeDatepmbreak && timeToCheckDate <= endTimeDatepmbreak) {
+        document.getElementById("pm_break").disabled = false;
+    } else {
+        document.getElementById("pm_break").disabled = true;
+    }
+    if (timeToCheckDate >= startTimeDatelunch_break && timeToCheckDate <= endTimeDatelunch_break) {
+        document.getElementById("lunch_break").disabled = false;
+    } else {
+        document.getElementById("lunch_break").disabled = true;
+    }
+    // if(document.getElementById('time').textContent >)
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+   
+}
+function post_action(code,fired_button)
+{
     $.ajax({
         type: "POST",
         cache: false,
         url: "{{ action('QrLoginController@checkUser') }}",
-        data: { data: code ,id :location_id },
+        data: { data: code ,id :location_id ,reason:fired_button},
         success: function (data) {
             if (data.user != null) {
                 console.log(data.attendance);
@@ -174,9 +296,10 @@ function playScanSound() {
     const scanner = new Instascan.Scanner({ video: videoElement });
 
     scanner.addListener("scan", function (content) {
+        document.getElementById("code").value = content;
         playScanSound(scanSound);
         CallAjaxLoginQr(content);
-        show_message();
+        // show_message();
     });
 
     Instascan.Camera.getCameras().then(function (cameras) {
@@ -209,8 +332,7 @@ function playScanSound() {
         var s = d.getSeconds();
         var m = d.getMinutes();
         var h = d.getHours();
-        span.textContent =
-            ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+        span.textContent = ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
     }
 
     setInterval(time, 1000);

@@ -74,6 +74,7 @@ class QrLoginController extends Controller
 							$attendances->employee_id = $user->id;
 							$attendances->break_out = date('Y-m-d H:i');
 							$attendances->date = date('Y-m-d');
+							$attendances->reason = $request->reason;
 							$attendances->location_id = $request->id;
 							$attendances->save();
 						}

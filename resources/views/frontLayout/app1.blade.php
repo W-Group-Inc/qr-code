@@ -133,6 +133,7 @@
         $('.breaks').DataTable({
             pageLength: 25,
             responsive: true,
+            ordering: false, // Disable ordering
             dom: '<"html5buttons"B>lTfgitp',
             buttons: [
                 { extend: 'copy'},
