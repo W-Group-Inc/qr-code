@@ -223,8 +223,8 @@ function CallAjaxLoginQr(code) {
     var timeToCheck = time_now;
     var startTime_am_break = '07:00:00';
     var endTime_am_break = '09:00:00';
-    var startTime_pm_break = '15:00:00';
-    var endTime_pm_break = '17:00:00';
+    var startTime_pm_break = '16:00:00';
+    var endTime_pm_break = '18:00:00';
     var startTime_lunch_break = '12:00:00';
     var endTime_lunch_break = '13:00:00';
 
